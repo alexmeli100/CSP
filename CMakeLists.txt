@@ -7,5 +7,5 @@ set(CMAKE_CXX_FLAGS "-fconcepts" )
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-add_executable(csp main.cpp csp.h variable.h csp.cpp csp.h domain.h domain.h assignment.h constraint.h)
+add_executable(csp main.cpp csp.h variable.h csp.cpp csp.h domain.h domain.h assignment.h constraint.h inference/inference_strategy.h inference/ac3_strategy.cpp inference/ac3_strategy.h)
 target_link_libraries(csp ${CONAN_LIBS})

@@ -1,7 +1,6 @@
 #ifndef CSP_DOMAIN_H
 #define CSP_DOMAIN_H
 
-#include <list>
 #include <vector>
 #include <range/v3/all.hpp>
 
@@ -10,12 +9,13 @@ namespace csp {
     template <typename VAL>
     class Domain {
     public:
-        explicit Domain(std::list<VAL> &values): values(values){};
+        explicit Domain(std::vector<VAL> &values) : values(values) {};
+
         constexpr int size() {
             return values.size();
         }
 
-        constexpr  bool is_empty() {
+        constexpr bool is_empty() {
             return values.size() == 0;
         }
 

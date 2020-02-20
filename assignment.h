@@ -18,6 +18,7 @@ namespace csp {
     class Assignment {
     public:
         Assignment() = default;
+        Assignment(const Assignment &ass) : value_map(ass.value_map) {}
 
         auto get_variables() {
             return value_map | ranges::views::keys;
@@ -27,7 +28,7 @@ namespace csp {
             return value_map[k];
         }
 
-        auto put_value(VAR &k, VAL &v) {
+        auto add(VAR &k, VAL &v) {
             return value_map.insert({k, v});
         }
 
@@ -42,7 +43,7 @@ namespace csp {
             return value_map.contains(k);
         }
 
-        bool is_complete(std::vector<VAR> vars) {
+        bool is_complete(std::vector<VAR> &vars) {
             return ranges::all_of(vars, &contains);
         }
 
